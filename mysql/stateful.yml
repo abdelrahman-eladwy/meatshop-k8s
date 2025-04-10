@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ml7ma-mysql
+  labels:
+    app: ml7ma-mysql
+spec:
+  serviceName: ml7ma-mysql
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml7ma-mysql
+  template:
+    metadata:
+      labels:
+        app: ml7ma-mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0.11
+          ports:
+            - containerPort: 3306
+              name: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: MYSQL_ROOT_PASSWORD
+                  name: be-secret
+           
+          volumeMounts:
+            - name: mysql-data
+              mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+    - metadata:
+        name: mysql-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
+        storageClassName: local-path 

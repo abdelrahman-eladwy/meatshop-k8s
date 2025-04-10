@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml7ma-backend
+  labels:
+    app: ml7ma-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml7ma-backend
+  template:
+    metadata:
+      labels:
+        app: ml7ma-backend
+    spec:
+      containers:
+        - name: ml7ma-backend
+          image: eladwy/g-back
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: mysql-secret

@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ml7ma-mysql-init
+  labels:
+    app: ml7ma-mysql
+spec:
+  template:
+    metadata:
+      labels:
+        app: ml7ma-mysql
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: mysql-init
+          image: mysql:8.0.11
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              mysql -h${MYSQL_HOST}  -u root -p${MYSQL_ROOT_PASSWORD} <<EOF
+              CREATE DATABASE IF NOT EXISTS meatshop;
+              EOF
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: MYSQL_ROOT_PASSWORD
+                  name: be-secret
+            - name: MYSQL_HOST
+              valueFrom:
+                secretKeyRef:
+                  key: LOCAL_DB_HOST
+                  name: mysql-secret

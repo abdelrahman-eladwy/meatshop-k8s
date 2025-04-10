@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml7ma-frontend
+  labels:
+    app: ml7ma-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ml7ma-frontend
+  template:
+    metadata:
+      labels:
+        app: ml7ma-frontend
+    spec:
+      initContainers:
+        - name: run-migrations
+          image: eladwy/g-back
+          command: ["sh", "-c"]
+          args:
+            - |
+              python manage.py migrate --no-input && \
+              python manage.py createcachetable
+          envFrom:
+            - secretRef:
+                name: mysql-secret
+
+      containers:
+        - name: ml7ma-frontend
+          image: eladwy/elml7ma
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
