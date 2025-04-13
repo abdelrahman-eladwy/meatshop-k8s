@@ -14,6 +14,17 @@ spec:
       labels:
         app: ml7ma-backend
     spec:
+      initContainers:
+        - name: run-migrations
+          image: eladwy/g-back  # Use your backend image here
+          command: ["sh", "-c"]
+          args:
+            - |
+              python manage.py migrate --no-input && \
+              python manage.py createcachetable
+          envFrom:
+            - secretRef:
+                name: mysql-secret
       containers:
         - name: ml7ma-backend
           image: eladwy/g-back

@@ -14,18 +14,6 @@ spec:
       labels:
         app: ml7ma-frontend
     spec:
-      initContainers:
-        - name: run-migrations
-          image: eladwy/g-back
-          command: ["sh", "-c"]
-          args:
-            - |
-              python manage.py migrate --no-input && \
-              python manage.py createcachetable
-          envFrom:
-            - secretRef:
-                name: mysql-secret
-
       containers:
         - name: ml7ma-frontend
           image: eladwy/elml7ma
@@ -33,6 +21,10 @@ spec:
           ports:
             - containerPort: 80
               name: http
+          volumeMounts:
+            - name: ml7ma-config
+              mountPath: /usr/share/nginx/html/config.json
+              subPath: config.json
           resources:
             requests:
               memory: "128Mi"
@@ -40,3 +32,7 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "500m"
+      volumes:
+        - name: ml7ma-config
+          configMap:
+            name: ml7ma-config
