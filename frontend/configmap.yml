@@ -5,6 +5,6 @@ metadata:
 data:
   config.json: |
     {
-     "SERVER_URL": "172.18.0.2:32032",
-     "AUTH_URL": "172.18.0.2:32032",
+     "SERVER_URL": "http://172.18.0.2:32032/shop",
+     "AUTH_URL": "http://172.18.0.2:32032/auth"
     }
