@@ -10,17 +10,20 @@ spec:
     - host: www.ml7ma.com
       http:
         paths:
-        - path: /frontend
-          pathType: Prefix
-          backend:
-            service:
-              name: ml7ma-frontend
-              port:
-                number: 80
-        - path: /backend
-          pathType: Exact
-          backend:
-            service:
-              name: ml7ma-backend
-              port:
-                number: 8000
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ml7ma-frontend
+                port:
+                  number: 80
+    - host: www.ml7maapi.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ml7ma-backend
+                port:
+                  number: 8000

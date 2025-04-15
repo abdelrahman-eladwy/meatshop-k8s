@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: ml7ma-config
 data:
-  config.json: |
+  config.json: |-
     {
-     "SERVER_URL": "http://172.18.0.2:32032/shop",
-     "AUTH_URL": "http://172.18.0.2:32032/auth"
+      "SERVER_URL": "http://www.ml7maapi.com/shop",
+      "AUTH_URL": "http://www.ml7maapi.com/auth"
     }

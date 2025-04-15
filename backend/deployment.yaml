@@ -33,3 +33,4 @@ spec:
           envFrom:
             - secretRef:
                 name: mysql-secret
+                
