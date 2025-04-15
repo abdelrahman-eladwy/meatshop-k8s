@@ -1,10 +1,10 @@
-# ML7MA E-commerce Application
+# ML7MA meatshop Application
 
-This project demonstrates a complete Kubernetes deployment for an e-commerce application called ML7MA, featuring both frontend and backend components with a MySQL database. The project showcases various Kubernetes concepts and deployment strategies, from basic manifests to a full Helm chart implementation.
+This project demonstrates a complete Kubernetes deployment for an meatshop application called ML7MA, featuring both frontend and backend components with a MySQL database. The project showcases various Kubernetes concepts and deployment strategies, from basic manifests to a full Helm chart implementation.
 
 ## Project Overview
 
-ML7MA is an e-commerce platform with:
+ML7MA is a meatshop platform with:
 - React frontend (NGINX-served)
 - Django backend API
 - MySQL database for persistent storage
