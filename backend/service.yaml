@@ -5,10 +5,8 @@ metadata:
   labels:
     app: ml7ma-backend
 spec:
-  type: NodePort
   ports:
     - port: 8000
-      nodePort: 32032
       targetPort: 8000
       protocol: TCP
   selector:

@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ml7ma-ingress
+  namespace: cyberco
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: www.ml7ma.com
+      http:
+        paths:
+        - path: /frontend
+          pathType: Prefix
+          backend:
+            service:
+              name: ml7ma-frontend
+              port:
+                number: 80
+        - path: /backend
+          pathType: Exact
+          backend:
+            service:
+              name: ml7ma-backend
+              port:
+                number: 8000
