@@ -17,7 +17,7 @@ spec:
       containers:
         - name: ml7ma-frontend
           image: borhom11/frontend:1.0.5
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
               name: http
