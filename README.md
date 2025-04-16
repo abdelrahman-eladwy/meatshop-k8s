@@ -13,14 +13,12 @@ The application is deployed using Kubernetes, with configurations for local deve
 
 ## Architecture
 
-(https://github.com/user-attachments/assets/f2380cb0-58de-48eb-88a0-0463edf90cc7)
+       Frontend (NGINX) <---> Backend (Django) <---> Database (MySQL)
+              |                    |
+              |                    |
+              v                    v
+       www.ml7ma.com        www.ml7maapi.com
 
-Frontend (NGINX) <---> Backend (Django) <---> Database (MySQL)
-       |                    |
-       |                    |
-       v                    v
-www.ml7ma.com        www.ml7maapi.com
-```
 
 ## Components
 
