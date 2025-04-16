@@ -21,7 +21,7 @@ The application is deployed using Kubernetes, with configurations for local deve
 
 
 ## Components
-
+![Alt text](Untitled.png)
 ### Docker Images
 - Frontend: `borhom11/frontend:1.0.5` - NGINX serving React application
 - Backend: `borhom11/backend:1.0.1` - Django REST API
@@ -58,7 +58,7 @@ The application is deployed using Kubernetes, with configurations for local deve
 ├── ingress.yml              # Ingress configuration
 └── kind-cluster.yml         # Kind cluster configuration for local development
 ```
-![Alt text](Untitled.png)
+
 ## Key Features
 
 ### Infrastructure as Code
