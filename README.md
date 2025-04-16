@@ -13,7 +13,7 @@ The application is deployed using Kubernetes, with configurations for local deve
 
 ## Architecture
 
-```![image](https://github.com/user-attachments/assets/08a93838-2c7b-4921-9024-5c064121deac)
+(https://github.com/user-attachments/assets/f2380cb0-58de-48eb-88a0-0463edf90cc7)
 
 Frontend (NGINX) <---> Backend (Django) <---> Database (MySQL)
        |                    |
