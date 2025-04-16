@@ -58,7 +58,7 @@ The application is deployed using Kubernetes, with configurations for local deve
 ├── ingress.yml              # Ingress configuration
 └── kind-cluster.yml         # Kind cluster configuration for local development
 ```
-
+![Alt text](Untitled.png)
 ## Key Features
 
 ### Infrastructure as Code
