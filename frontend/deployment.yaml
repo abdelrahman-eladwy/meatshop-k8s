@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: ml7ma-frontend
-          image: eladwy/frontend:93e5cb36dc0eef77ca20233942e6971c5952a7f6
+          image: eladwy/frontend:2609adfb225f5c7816f374f751c29923069a6d0e
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
