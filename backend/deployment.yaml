@@ -16,7 +16,7 @@ spec:
     spec:
       initContainers:
         - name: run-migrations
-          image: borhom11/backend:1.0.1  # Use your backend image here
+          image: eladwy/backend:200019f935b808de07e8fe9c6c6b3cb4cef617f7
           command: ["sh", "-c"]
           args:
             - |
@@ -27,7 +27,7 @@ spec:
                 name: mysql-secret
       containers:
         - name: ml7ma-backend
-          image: borhom11/backend:1.0.1
+          image: eladwy/backend:200019f935b808de07e8fe9c6c6b3cb4cef617f7
           ports:
             - containerPort: 8000
           envFrom:
