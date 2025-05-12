@@ -16,7 +16,7 @@ spec:
     spec:
       initContainers:
         - name: run-migrations
-          image: eladwy/backend:200019f935b808de07e8fe9c6c6b3cb4cef617f7
+          image: eladwy/backend:2817512ef05675c473bac0e668dc70861c9f58e6
           command: ["sh", "-c"]
           args:
             - |
@@ -27,7 +27,7 @@ spec:
                 name: mysql-secret
       containers:
         - name: ml7ma-backend
-          image: eladwy/backend:200019f935b808de07e8fe9c6c6b3cb4cef617f7
+          image: eladwy/backend:2817512ef05675c473bac0e668dc70861c9f58e6
           ports:
             - containerPort: 8000
           envFrom:
